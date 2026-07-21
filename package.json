@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "npm run typecheck && npm run build --workspaces --if-present",
+    "build": "npm run typecheck && npm run build -w @workspace/learnease-mirpur",
     "typecheck:libs": "tsc --build",
     "typecheck": "npm run typecheck:libs && npm run typecheck --workspaces --if-present",
-    "dev": "npm run build -w @workspace/learnease-mirpur && npm run dev -w @workspace/api-server"
+    "dev": "npm run dev -w @workspace/learnease-mirpur"
   },
   "private": true,
   "dependencies": {
