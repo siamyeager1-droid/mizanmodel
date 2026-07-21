@@ -1,0 +1,174 @@
+Brand Identity
+Property	Value
+School Name	LearnEase Mirpur
+Tagline	Empowering Young Minds
+Founded	2009
+Location	Section 12, Mirpur, Dhaka 1216
+Target Audience	Parents, Students (Class 1–12)
+Tone	Warm, Trustworthy, Inspiring
+Color Palette
+Light Mode
+Role	Variable	Value (oklch)	Purpose
+Background	--background	
+oklch(0.98 0.005 220)
+Slightly cool off-white
+Foreground	--foreground	
+oklch(0.18 0.02 230)
+Deep navy-tinted text
+Primary	--primary	
+oklch(0.42 0.15 240)
+Deep blue — main brand
+Accent	--accent	
+oklch(0.55 0.14 165)
+Teal-green — secondary brand
+Secondary	--secondary	
+oklch(0.92 0.04 165)
+Light mint backgrounds
+Muted	--muted	
+oklch(0.94 0.01 220)
+Section background tint
+Card	--card	
+oklch(1 0 0)
+Pure white cards
+Sidebar	--sidebar	
+oklch(0.18 0.04 240)
+Dark navy footer
+Dark Mode
+Role	Variable	Value
+Background	--background	
+oklch(0.14 0.02 230)
+Primary	--primary	
+oklch(0.6 0.15 240)
+Accent	--accent	
+oklch(0.5 0.13 165)
+Card	--card	
+oklch(0.19 0.025 230)
+Hero highlight: yellow-300 — used on school name text and star icons for warmth against the blue overlay.
+
+Typography
+Role	Font	Weight	Usage
+Sans (body)	Plus Jakarta Sans	200–800	All UI, navigation, body
+Serif	Lora	400–700	Decorative headings
+Mono	Geist Mono	100–900	Code / technical content
+Type Scale
+Element	Size	Weight
+Hero H1	text-5xl–6xl	700
+Section H2	text-3xl–4xl	700
+Card H3	text-base–xl	700
+Body paragraph	text-base–lg	400
+Labels/Tags	text-xs–sm	500–600 uppercase
+Layout
+Page Structure
+Single-page smooth-scroll layout with id anchors.
+
+
+
+#home        → Hero
+#about       → Mission, Vision, History
+#programs    → Courses grid
+#admissions  → Process + form
+#faculty     → Teacher profiles
+#gallery     → Photo gallery
+#contact     → Map + contact form
+Footer       → Links + social + copyright
+Container
+Max width: max-w-7xl (1280px)
+Padding: px-4 sm:px-6 lg:px-8
+Section spacing: py-20 lg:py-28
+Sections & Components
+Navbar
+Fixed top, z-50
+Transparent → bg-white/95 backdrop-blur-md shadow-md on scroll
+Logo: GraduationCap icon + "LearnEase" bold + "MIRPUR" teal uppercase
+Desktop: horizontal links + "Apply Now" button
+Mobile: hamburger → AnimatePresence slide-down panel
+Hero
+Full-viewport background image
+Overlay: from-primary/90 via-primary/75 to-accent/60
+Staggered entrance (badge → H1 → tagline → buttons → stats)
+Stats: 1,200+ Students | 30+ Programs | 15+ Years
+Scroll-down bouncing chevron
+About Us
+Mission + Vision as 2-column cards
+History timeline (2009 → 2024) with vertical line + circle icons
+All animated with useInView scroll reveal
+Programs
+8 cards in sm:grid-cols-2 lg:grid-cols-4
+Color-coded per stream:
+Blue → Primary School
+Teal → Middle School
+Purple → Science
+Orange → Humanities
+Cyan → Computer & IT
+Pink → Arts & Creative
+Yellow → Music & Drama
+Green → Sports
+Admissions
+4 step cards (Download → Submit → Assessment → Confirm)
+Enquiry form: Parent name, Student name, Grade, Phone, Email, Message
+Sidebar: Office hours, Quick contact, Scholarship info, Required documents
+Faculty
+6 teacher cards with photo, star rating, role, subject, quote
+Hover: image zoom + overlay
+"Join Our Team" CTA banner
+Gallery
+Filter tabs: All / Academics / Science / Sports / Events
+3-column aspect-[4/3] grid
+Click → lightbox modal with scale-in animation
+Contact
+4 info cards: Address, Phone, Email, Hours
+Google Maps iframe (Mirpur, Dhaka)
+Contact form with Name, Email, Subject, Message
+Footer
+Dark navy bg-sidebar
+4 columns: Brand + Quick Links + Programs + Contact
+Custom SVG social icons (Facebook, Twitter/X, YouTube, Instagram)
+Dynamic copyright year
+Animation Strategy (motion v12)
+Animation	Element	Config
+Page load	Navbar	y: -80→0, 0.5s easeOut
+Hero stagger	Badge → Stats	0.1s delay increments
+Scroll reveal	All sections	useInView, y: 25→0, 0.5s
+Card stagger	Grid items	delay: (i % 4) * 0.08
+Scroll indicator	Chevron	Infinite y: [0,8,0], 1.5s
+Gallery hover	Image	scale: 1→1.1, 500ms
+Lightbox open	Modal	scale: 0.8→1, opacity fade
+Responsiveness
+Breakpoint	Layout
+Mobile	Single column, hamburger nav, stacked forms
+sm (640px)	2-col card grids, split form rows
+md (768px)	Desktop navbar, 2-col About
+lg (1024px)	4-col programs, 5-col admissions, 3-col faculty
+Form Behavior
+Both forms use:
+
+Controlled useState inputs
+e.preventDefault() on submit
+1.2s simulated async delay
+toast.success() via Sonner
+Form reset after success
+Button disabled state while submitting
+File Structure
+
+
+src/pages/
+├── Index.tsx                 ← Assembles all sections
+└── _components/
+    ├── Navbar.tsx            ← Fixed navigation
+    ├── Hero.tsx              ← Hero with stats
+    ├── About.tsx             ← Mission/Vision/Timeline
+    ├── Programs.tsx          ← 8 program cards
+    ├── Admissions.tsx        ← Process + enquiry form
+    ├── Faculty.tsx           ← Teacher profiles
+    ├── Gallery.tsx           ← Filterable gallery + lightbox
+    ├── Contact.tsx           ← Map + contact form
+    └── Footer.tsx            ← Dark footer + social
+Key Design Decisions
+Single-page scroll — Reduces friction for parents browsing on mobile. Everything is one scroll away.
+Blue + Teal palette — Blue = trust/stability (critical for a school), Teal = growth/freshness. Both strongly associated with education.
+Plus Jakarta Sans — More distinctive than Inter, warm yet modern, highly readable at all sizes.
+Yellow in hero — School name pops against the blue overlay without being garish — creates a memorable visual anchor.
+Dark navy footer — Strong visual closure; feels premium against the light body sections.
+useInView animations — Fires only when element enters viewport, so users feel the content responds to them rather than auto-playing on load.
+Gallery lightbox — Lets parents/students view school life photos in detail without leaving the page, increasing engagement time.
+Inline forms — Keeping admissions and contact forms on-page (no redirects) reduces drop-off significantly.

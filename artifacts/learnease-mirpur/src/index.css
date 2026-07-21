@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: oklch(var(--background));
+  --color-foreground: oklch(var(--foreground));
+  --color-border: oklch(var(--border));
+  --color-input: oklch(var(--input));
+  --color-ring: oklch(var(--ring));
+
+  --color-card: oklch(var(--card));
+  --color-card-foreground: oklch(var(--card-foreground));
+  --color-card-border: oklch(var(--card-border));
+
+  --color-popover: oklch(var(--popover));
+  --color-popover-foreground: oklch(var(--popover-foreground));
+  --color-popover-border: oklch(var(--popover-border));
+
+  --color-primary: oklch(var(--primary));
+  --color-primary-foreground: oklch(var(--primary-foreground));
+
+  --color-secondary: oklch(var(--secondary));
+  --color-secondary-foreground: oklch(var(--secondary-foreground));
+
+  --color-muted: oklch(var(--muted));
+  --color-muted-foreground: oklch(var(--muted-foreground));
+
+  --color-accent: oklch(var(--accent));
+  --color-accent-foreground: oklch(var(--accent-foreground));
+
+  --color-destructive: oklch(var(--destructive));
+  --color-destructive-foreground: oklch(var(--destructive-foreground));
+
+  --color-sidebar: oklch(var(--sidebar));
+  --color-sidebar-foreground: oklch(var(--sidebar-foreground));
+  --color-sidebar-border: oklch(var(--sidebar-border));
+  --color-sidebar-primary: oklch(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: oklch(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: oklch(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: oklch(var(--sidebar-accent-foreground));
+  --color-sidebar-ring: oklch(var(--sidebar-ring));
+
+  --font-sans: 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+  --font-serif: 'Noto Serif Bengali', 'Noto Serif', serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 0.98 0.005 30;
+  --foreground: 0.18 0.02 30;
+
+  --border: 0.88 0.01 30;
+  --input: 0.94 0.01 30;
+  --ring: 0.42 0.18 20;
+
+  --card: 1 0 0;
+  --card-foreground: 0.18 0.02 30;
+  --card-border: 0.88 0.01 30;
+
+  --popover: 1 0 0;
+  --popover-foreground: 0.18 0.02 30;
+  --popover-border: 0.88 0.01 30;
+
+  --primary: 0.45 0.2 25;
+  --primary-foreground: 1 0 0;
+
+  --secondary: 0.93 0.05 85;
+  --secondary-foreground: 0.2 0.02 30;
+
+  --muted: 0.94 0.01 30;
+  --muted-foreground: 0.4 0.02 30;
+
+  --accent: 0.55 0.16 145;
+  --accent-foreground: 1 0 0;
+
+  --destructive: 0.6 0.15 20;
+  --destructive-foreground: 1 0 0;
+
+  --sidebar: 0.18 0.04 25;
+  --sidebar-foreground: 0.98 0.005 30;
+  --sidebar-border: 0.25 0.04 25;
+  --sidebar-primary: 0.45 0.2 25;
+  --sidebar-primary-foreground: 1 0 0;
+  --sidebar-accent: 0.25 0.04 25;
+  --sidebar-accent-foreground: 0.98 0.005 30;
+  --sidebar-ring: 0.45 0.2 25;
+
+  --radius: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer utilities {
+  input[type='search']::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: oklch(var(--muted-foreground));
+    pointer-events: none;
+  }
+}
