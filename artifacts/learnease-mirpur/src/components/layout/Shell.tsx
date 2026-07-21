@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone, Mail, MapPin, ChevronRight, Facebook, Youtube, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
+import { logoBase64 } from "../../lib/logo";
 
 const NAV_LINKS = [
   { id: "home", label: "হোম" },
@@ -60,7 +61,7 @@ export function Navbar() {
             onClick={(e) => { e.preventDefault(); scrollTo('home'); }}
             className="flex items-center gap-2 sm:gap-3 z-50 group"
           >
-            <img src="/images/logo.png" alt="মিজান মডেল হাই স্কুল লোগো" className="h-9 w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12 object-contain bg-white rounded-md p-0.5" />
+            <img src={logoBase64} alt="মিজান মডেল হাই স্কুল লোগো" className="h-9 w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12 object-contain bg-white rounded-md p-0.5" />
             <div className="flex flex-col min-w-0">
               <span className={`font-serif font-bold text-base sm:text-lg lg:text-2xl leading-tight transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>
                 মিজান মডেল হাই স্কুল
@@ -172,7 +173,7 @@ export function Footer() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <img src="/images/logo.png" alt="মিজান মডেল হাই স্কুল লোগো" className="h-12 w-12 object-contain bg-white rounded-md p-0.5" />
+              <img src={logoBase64} alt="মিজান মডেল হাই স্কুল লোগো" className="h-12 w-12 object-contain bg-white rounded-md p-0.5" />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg leading-tight text-white">
                   মিজান মডেল হাই স্কুল
