@@ -6,7 +6,8 @@
     "build": "npm run typecheck && npm run build -w @workspace/learnease-mirpur",
     "typecheck:libs": "tsc --build",
     "typecheck": "npm run typecheck:libs && npm run typecheck --workspaces --if-present",
-    "dev": "npm run dev -w @workspace/learnease-mirpur"
+    "dev": "npm run dev -w @workspace/learnease-mirpur",
+    "postinstall": "node scripts/patch-wrangler.cjs"
   },
   "private": true,
   "dependencies": {
@@ -16,7 +17,8 @@
   },
   "devDependencies": {
     "prettier": "^3.9.5",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "wrangler": "^4.112.0"
   },
   "workspaces": [
     "artifacts/*",
