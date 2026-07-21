@@ -77,7 +77,7 @@ export function GallerySection() {
               >
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-multiply" />
                 <img
-                  src={img.src}
+                  src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${img.src}`}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -119,7 +119,7 @@ export function GallerySection() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={selectedImage.src}
+                  src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}${selectedImage.src}`}
                   alt={selectedImage.alt}
                   className="w-full h-full object-contain rounded-lg shadow-2xl"
                 />

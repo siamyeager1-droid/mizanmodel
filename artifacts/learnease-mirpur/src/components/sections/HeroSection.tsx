@@ -27,7 +27,7 @@ export function HeroSection() {
     <section id="home" className="relative w-full min-h-[100dvh] flex items-center justify-center pt-28 sm:pt-32 lg:pt-40 pb-24 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.jpg"
+          src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/hero-bg.jpg`}
           alt="স্কুল ক্যাম্পাস"
           className="w-full h-full object-cover"
         />

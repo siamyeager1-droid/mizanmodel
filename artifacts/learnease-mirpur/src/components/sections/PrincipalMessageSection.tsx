@@ -17,7 +17,7 @@ export function PrincipalMessageSection() {
           <div className="relative">
             <div className="aspect-square max-w-md mx-auto rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl">
               <img
-                src="/images/faculty-1.jpg"
+                src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/faculty-1.jpg`}
                 alt="অধ্যক্ষ"
                 className="w-full h-full object-cover"
               />
