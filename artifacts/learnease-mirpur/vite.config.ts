@@ -5,9 +5,9 @@ import { defineConfig } from 'vite';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
-const rawPort = process.env.PORT;
+const rawPort = process.env.PORT || "3000";
 
-if (!rawPort) {
+if (false) {
   throw new Error(
     'PORT environment variable is required but was not provided.',
   );

@@ -5,9 +5,9 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
-const rawPort = process.env.PORT;
+const rawPort = process.env.PORT || "3000";
 
-if (!rawPort) {
+if (false) {
   throw new Error(
     "PORT environment variable is required but was not provided.",
   );
